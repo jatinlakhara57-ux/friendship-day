@@ -1,196 +1,363 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Friendship Day Alvira ❤️</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Friendship Day Alvira ✨</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #feada6 100%);
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            text-align: center;
+        }
+        .container {
+            width: 90%;
+            max-width: 500px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 10;
+            margin: 20px auto;
+        }
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.8rem;
+            color: #d63384;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #6c757d;
+            margin-bottom: 20px;
+        }
+        
+        /* Gift Box CSS */
+        .gift-container {
+            margin: 30px auto;
+            cursor: pointer;
+            display: inline-block;
+        }
+        .gift-box {
+            font-size: 80px;
+            animation: pulse 1.5s infinite;
+            transition: transform 0.5s ease;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1) rotate(5deg); }
+            100% { transform: scale(1); }
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+        .btn-open {
+            background: linear-gradient(45deg, #ff416c, #ff4b2b);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 65, 108, 0.4);
+            transition: 0.3s;
+            font-weight: 600;
+        }
+        .btn-open:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 65, 108, 0.6);
+        }
 
-<style>
+        /* Hidden Sequence Area */
+        #surprise-area {
+            display: none;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-}
+        /* Letter Box */
+        .letter-box {
+            background: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 5px solid #ff416c;
+            margin: 20px 0;
+            text-align: left;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            min-height: 120px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
 
-body{
-height:100vh;
-overflow:hidden;
-display:flex;
-justify-content:center;
-align-items:center;
-background:linear-gradient(-45deg,#0f172a,#1e3a8a,#6d28d9,#ec4899);
-background-size:400% 400%;
-animation:bg 12s ease infinite;
-}
+        /* Slideshow */
+        .slideshow-container {
+            width: 100%;
+            height: 250px;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .slide {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none;
+        }
+        .slide.active {
+            display: block;
+            animation: fadeIn 1s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
 
-@keyframes bg{
-0%{background-position:0% 50%;}
-50%{background-position:100% 50%;}
-100%{background-position:0% 50%;}
-}
+        /* Premium Highlight Text */
+        .highlight-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            color: #d63384;
+            margin: 20px 0;
+        }
 
-.card{
-width:90%;
-max-width:420px;
-padding:35px;
-border-radius:25px;
-background:rgba(255,255,255,.12);
-backdrop-filter:blur(18px);
-border:1px solid rgba(255,255,255,.25);
-text-align:center;
-color:white;
-box-shadow:0 0 40px rgba(255,255,255,.2);
-animation:zoom 1.5s ease;
-}
+        /* Music Controls */
+        .music-btn {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            background: #ffffff;
+            border: none;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            z-index: 100;
+        }
 
-@keyframes zoom{
-from{
-opacity:0;
-transform:scale(.7);
-}
-to{
-opacity:1;
-transform:scale(1);
-}
-}
+        /* Canvas Overlay for Fireworks */
+        #fireworks-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
 
-h1{
-font-size:34px;
-margin-bottom:15px;
-text-shadow:0 0 20px gold;
-}
-
-h2{
-font-size:25px;
-color:#ffd700;
-margin-bottom:15px;
-}
-
-p{
-line-height:1.7;
-font-size:17px;
-}
-
-button{
-margin-top:30px;
-padding:15px 35px;
-border:none;
-border-radius:50px;
-font-size:18px;
-cursor:pointer;
-background:gold;
-font-weight:bold;
-transition:.3s;
-}
-
-button:hover{
-transform:scale(1.1);
-}
-
-#gift{
-display:none;
-margin-top:25px;
-font-size:55px;
-animation:gift 1s infinite;
-}
-
-@keyframes gift{
-50%{
-transform:translateY(-10px);
-}
-}
-
-#message{
-display:none;
-margin-top:25px;
-font-size:18px;
-color:#fff;
-}
-
-.heart{
-position:absolute;
-color:#ff4d6d;
-font-size:25px;
-animation:float 6s linear infinite;
-}
-
-@keyframes float{
-0%{
-transform:translateY(100vh);
-opacity:0;
-}
-100%{
-transform:translateY(-120vh);
-opacity:1;
-}
-}
-
-</style>
+        /* Floating Animation Elements */
+        .heart, .rose {
+            position: fixed;
+            font-size: 20px;
+            user-select: none;
+            pointer-events: none;
+            z-index: 2;
+            animation: floatUp 4s linear infinite;
+        }
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+        }
+    </style>
 </head>
+  <body>
 
-<body>
+    <button class="music-btn" onclick="toggleMusic()" id="mBtn">🎵</button>
+    <audio id="bg-music" loop>
+        <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=sweet-love-111578.mp3" type="audio/mpeg">
+    </audio>
 
-<div class="card">
+    <canvas id="fireworks-canvas"></canvas>
 
-<h1>Happy Friendship Day ❤️</h1>
+    <div class="container">
+        <h1>Happy Friendship Day ❤️</h1>
+        <div class="subtitle">To my sweetest friend, Alvira ✨</div>
 
-<h2>Alvira ✨</h2>
+        <div id="initial-view">
+            <div class="gift-container" onclick="startSurprise()">
+                <div class="gift-box" id="gBox">🎁</div>
+            </div>
+            <br>
+            <button class="btn-open" onclick="startSurprise()">Open Surprise 🎁</button>
+        </div>
 
-<p>
-Some people make life brighter just by being in it.
-Thank you for being such a wonderful friend.
-</p>
+        <div id="surprise-area">
+            
+            <div class="letter-box">
+                <span id="typewriter"></span>
+            </div>
 
-<button onclick="openGift()">
-Open Surprise 🎁
-</button>
+            <div class="slideshow-container">
+                <img class="slide active" src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=500&q=80" alt="Photo 1">
+                <img class="slide" src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=500&q=80" alt="Photo 2">
+                <img class="slide" src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=500&q=80" alt="Photo 3">
+            </div>
 
-<div id="gift">
-🎁
-</div>
+            <div class="highlight-text">
+                "I am lucky to have you as my best friend!" 💖
+            </div>
 
-<div id="message">
-  <style>
-button{
-  margin-top:20px;
-  padding:12px 25px;
-  font-size:18px;
-  border:none;
-  border-radius:30px;
-  background:#ff4d6d;
-  color:white;
-  cursor:pointer;
-}
+        </div>
+    </div>
+        <script>
+        const letterText = "Dear Alvira, \n\nHappy Friendship Day! ✨ Thank you for always being there, making me laugh, and bringing so much positivity into my life. Having a friend like you is a blessing, and I truly cherish every moment and memory we share! 💖";
+        let musicPlaying = false;
 
-#msg{
-  display:none;
-  margin-top:20px;
-  font-size:22px;
-  color:#ffe66d;
-}
-</style>
-<script>
-function surprise(){
-  document.getElementById("msg").style.display="block";
-}
-</script>
-</head>
+        function toggleMusic() {
+            const music = document.getElementById('bg-music');
+            const btn = document.getElementById('mBtn');
+            if (musicPlaying) {
+                music.pause();
+                btn.innerHTML = '🎵';
+                musicPlaying = false;
+            } else {
+                music.play();
+                btn.innerHTML = '🔊';
+                musicPlaying = true;
+            }
+        }
 
-<body>
-<div>
-  <h1>Happy Friendship Day ❤️</h1>
-  <h2>Alvira 🌸</h2>
-  <p>You're an amazing friend. Wishing you endless happiness! 💖</p>
+        function startSurprise() {
+            // 1. Play Music
+            const music = document.getElementById('bg-music');
+            music.play().then(() => {
+                musicPlaying = true;
+                document.getElementById('mBtn').innerHTML = '🔊';
+            }).catch(() => {});
 
-  <button onclick="surprise()">Click Me 🎁</button>
+            // 2. Hide Initial view & Gift Animation
+            document.getElementById('gBox').style.transform = 'scale(1.5) rotate(20deg)';
+            
+            setTimeout(() => {
+                document.getElementById('initial-view').style.display = 'none';
+                const surpriseArea = document.getElementById('surprise-area');
+                surpriseArea.style.display = 'block';
+                setTimeout(() => surpriseArea.style.opacity = '1', 50);
 
-  <div id="msg">
-    🌹 Thank you for being my best friend! 🌹
-  </div>
-</div>
+                // Trigger Sequence
+                triggerConfetti();
+                startTypewriter();
+                startSlideshow();
+                startFloatingIcons();
+                startFireworks();
+            }, 600);
+        }
+
+        // Confetti Burst
+        function triggerConfetti() {
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 }
+            });
+        }
+
+        // Typewriter Effect
+        function startTypewriter() {
+            let i = 0;
+            const speed = 50;
+            const container = document.getElementById('typewriter');
+            function type() {
+                if (i < letterText.length) {
+                    if (letterText.charAt(i) === '\n') {
+                        container.innerHTML += '<br>';
+                    } else {
+                        container.innerHTML += letterText.charAt(i);
+                    }
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+
+        // Photo Slideshow
+        function startSlideshow() {
+            let slides = document.querySelectorAll('.slide');
+            let index = 0;
+            setInterval(() => {
+                slides[index].classList.remove('active');
+                index = (index + 1) % slides.length;
+                slides[index].classList.add('active');
+            }, 3000);
+        }
+
+        // Floating Hearts & Roses
+        function startFloatingIcons() {
+            const icons = ['❤️', '🌹', '💖', '✨'];
+            setInterval(() => {
+                const icon = document.createElement('div');
+                icon.className = Math.random() > 0.5 ? 'heart' : 'rose';
+                icon.innerText = icons[Math.floor(Math.random() * icons.length)];
+                icon.style.left = Math.random() * 100 + 'vw';
+                icon.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                document.body.appendChild(icon);
+                setTimeout(() => icon.remove(), 5000);
+            }, 400);
+        }
+
+        // Canvas Fireworks Animation
+        function startFireworks() {
+            const canvas = document.getElementById('fireworks-canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            let particles = [];
+            function createParticle() {
+                const x = Math.random() * canvas.width;
+                const y = Math.random() * (canvas.height / 2);
+                const color = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                for (let i = 0; i < 30; i++) {
+                    particles.push({
+                        x: x, y: y,
+                        dx: (Math.random() - 0.5) * 6,
+                        dy: (Math.random() - 0.5) * 6,
+                        radius: Math.random() * 3,
+                        color: color,
+                        alpha: 1
+                    });
+                }
+            }
+
+            setInterval(createParticle, 800);
+
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particles.forEach((p, index) => {
+                    p.x += p.dx;
+                    p.y += p.dy;
+                    p.alpha -= 0.01;
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = p.color;
+                    ctx.globalAlpha = p.alpha;
+                    ctx.fill();
+
+                    if (p.alpha <= 0) particles.splice(index, 1);
+                });
+                requestAnimationFrame(animate);
+            }
+            animate();
+        }
+    </script>
 </body>
 </html>

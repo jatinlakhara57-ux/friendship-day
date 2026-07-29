@@ -101,7 +101,7 @@
 
         .slideshow-container {
             width: 100%;
-            height: 300px;
+            height: 320px;
             border-radius: 20px;
             overflow: hidden;
             position: relative;
@@ -210,9 +210,9 @@
             </div>
 
             <div class="slideshow-container">
-                <img class="slide active" src="https://i.ibb.co/6c2r9k6/4wsThQGj.jpg" alt="Photo 1" onerror="this.src='https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=500'">
-                <img class="slide" src="https://i.ibb.co/3ykG2j5/C58DnJqp.jpg" alt="Photo 2" onerror="this.src='https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=500'">
-                <img class="slide" src="https://i.ibb.co/S4LwHh3/KxTjWNXQ.jpg" alt="Photo 3" onerror="this.src='https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=500'">
+                <img class="slide active" src="Snapchat-110399719.jpg" alt="Photo 1">
+                <img class="slide" src="Snapchat-342997170.jpg" alt="Photo 2">
+                <img class="slide" src="Snapchat-228034569.jpg" alt="Photo 3">
             </div>
 
             <div class="highlight-text">
@@ -350,7 +350,7 @@
                         x: x, y: y,
                         dx: (Math.random() - 0.5) * 6,
                         dy: (Math.random() - 0.5) * 6,
-                        radius: Math.random() * 2.5,
+                        radius: Math.radius || Math.random() * 2.5,
                         color: color,
                         alpha: 1
                     });
@@ -359,24 +359,4 @@
 
             setInterval(createParticle, 700);
 
-            function animate() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                particles.forEach((p, index) => {
-                    p.x += p.dx;
-                    p.y += p.dy;
-                    p.alpha -= 0.015;
-                    ctx.beginPath();
-                    ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-                    ctx.fillStyle = p.color;
-                    ctx.globalAlpha = p.alpha;
-                    ctx.fill();
-
-                    if (p.alpha <= 0) particles.splice(index, 1);
-                });
-                requestAnimationFrame(animate);
-            }
-            animate();
-        }
-    </script>
-</body>
-</html>
+            function animate()

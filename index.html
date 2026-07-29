@@ -7,11 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
             font-family: 'Poppins', sans-serif;
@@ -45,28 +41,10 @@
             -webkit-text-fill-color: transparent;
             margin-bottom: 10px;
         }
-        .subtitle {
-            font-size: 1.1rem;
-            font-weight: 300;
-            color: #e0e0e0;
-            margin-bottom: 25px;
-        }
-        
-        .gift-container {
-            margin: 20px auto;
-            cursor: pointer;
-            display: inline-block;
-        }
-        .gift-box {
-            font-size: 80px;
-            animation: pulse 1.8s infinite;
-        }
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.15) rotate(8deg); }
-            100% { transform: scale(1); }
-        }
-
+        .subtitle { font-size: 1.1rem; font-weight: 300; color: #e0e0e0; margin-bottom: 25px; }
+        .gift-container { margin: 20px auto; cursor: pointer; display: inline-block; }
+        .gift-box { font-size: 80px; animation: pulse 1.8s infinite; }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.15) rotate(8deg); } 100% { transform: scale(1); } }
         .btn-open {
             background: linear-gradient(45deg, #bf953f, #aa771c);
             color: #000;
@@ -79,13 +57,7 @@
             font-weight: 700;
             text-transform: uppercase;
         }
-
-        #surprise-area {
-            display: none;
-            opacity: 0;
-            transition: opacity 1s ease;
-        }
-
+        #surprise-area { display: none; opacity: 0; transition: opacity 1s ease; }
         .letter-box {
             background: rgba(255, 255, 255, 0.05);
             padding: 20px;
@@ -98,7 +70,6 @@
             line-height: 1.8;
             color: #f0f0f0;
         }
-
         .slideshow-container {
             width: 100%;
             height: 320px;
@@ -109,104 +80,36 @@
             border: 2px solid rgba(191, 149, 63, 0.4);
             background: rgba(0,0,0,0.2);
         }
-        .slide {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: none;
-        }
-        .slide.active {
-            display: block;
-        }
-
-        .highlight-text {
-            font-family: 'Dancing Script', cursive;
-            font-size: 1.8rem;
-            color: #fcf6ba;
-            margin: 20px 0;
-        }
-
-        .blessings-section-title {
-            font-size: 1.1rem;
-            color: #fcf6ba;
-            margin-top: 25px;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-        .blessings-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-        .blessing-card {
-            background: rgba(191, 149, 63, 0.15);
-            border: 1.5px solid rgba(191, 149, 63, 0.5);
-            border-radius: 12px;
-            padding: 15px;
-            cursor: pointer;
-            text-align: left;
-        }
-        .blessing-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 600;
-            color: #fcf6ba;
-            font-size: 0.95rem;
-        }
-        .blessing-detail {
-            display: none;
-            margin-top: 10px;
-            font-size: 0.88rem;
-            color: #eee;
-            line-height: 1.6;
-            border-top: 1px rgba(255,255,255,0.1) solid;
-            padding-top: 8px;
-        }
-
-        #fireworks-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .star {
-            position: fixed;
-            font-size: 20px;
-            pointer-events: none;
-            z-index: 2;
-            animation: floatUp 4s linear infinite;
-        }
-        @keyframes floatUp {
-            0% { transform: translateY(105vh); opacity: 1; }
-            100% { transform: translateY(-10vh); opacity: 0; }
-        }
+        .slide { width: 100%; height: 100%; object-fit: cover; display: none; }
+        .slide.active { display: block; }
+        .highlight-text { font-family: 'Dancing Script', cursive; font-size: 1.8rem; color: #fcf6ba; margin: 20px 0; }
+        .blessings-section-title { font-size: 1.1rem; color: #fcf6ba; margin-top: 25px; margin-bottom: 15px; font-weight: 600; }
+        .blessings-grid { display: flex; flex-direction: column; gap: 12px; }
+        .blessing-card { background: rgba(191, 149, 63, 0.15); border: 1.5px solid rgba(191, 149, 63, 0.5); border-radius: 12px; padding: 15px; cursor: pointer; text-align: left; }
+        .blessing-header { display: flex; justify-content: space-between; align-items: center; font-weight: 600; color: #fcf6ba; font-size: 0.95rem; }
+        .blessing-detail { display: none; margin-top: 10px; font-size: 0.88rem; color: #eee; line-height: 1.6; border-top: 1px rgba(255,255,255,0.1) solid; padding-top: 8px; }
+        .star { position: fixed; font-size: 20px; pointer-events: none; z-index: 2; animation: floatUp 4s linear infinite; }
+        @keyframes floatUp { 0% { transform: translateY(105vh); opacity: 1; } 100% { transform: translateY(-10vh); opacity: 0; } }
     </style>
 </head>
 <body>
-
-    <canvas id="fireworks-canvas"></canvas>
 
     <div class="container">
         <h1>Happy Friendship Day ✨</h1>
         <div class="subtitle">To my most precious friend, Alvira ❤️</div>
 
         <div id="initial-view">
-            <div class="gift-container" onclick="startSurprise()">
-                <div class="gift-box" id="gBox">🎁</div>
+            <div class="gift-container" onclick="openSurprise()">
+                <div class="gift-box">🎁</div>
             </div>
             <br>
-            <button class="btn-open" onclick="startSurprise()">Reveal Magic ✨</button>
+            <button class="btn-open" onclick="openSurprise()">Reveal Magic ✨</button>
         </div>
 
         <div id="surprise-area">
-            
             <div class="letter-box">
-                <span id="typewriter"></span>
+                Dear Alvira,<br><br>
+                Happy Friendship Day! ✨ On this special day, I wanted to remind you how much your friendship means to me. From the random chats to the meaningful support, you've made every moment better. Having you as my best friend is a privilege, and I'm so grateful for your presence in my life. Cheers to us and many more memories! 🥂💛
             </div>
 
             <div class="slideshow-container">
@@ -215,148 +118,10 @@
                 <img class="slide" src="Snapchat-228034569.jpg" alt="Photo 3">
             </div>
 
-            <div class="highlight-text">
-                "Forever & Always, My Best Friend" 💖
-            </div>
+            <div class="highlight-text">"Forever & Always, My Best Friend" 💖</div>
 
             <div class="blessings-section-title">✨ Special Blessings For You ✨</div>
             <div class="blessings-grid">
-                
                 <div class="blessing-card" onclick="revealBlessing(this)">
-                    <div class="blessing-header">
-                        <span>🌸 Endless Happiness</span>
-                        <span style="color:#bf953f;">Tap to Open ✨</span>
-                    </div>
-                    <div class="blessing-detail">
-                        May your life always be filled with genuine laughter, beautiful moments, and pure joy. You deserve all the happiness in the world! 💖
-                    </div>
-                </div>
-
-                <div class="blessing-card" onclick="revealBlessing(this)">
-                    <div class="blessing-header">
-                        <span>🌟 Success & Good Health</span>
-                        <span style="color:#bf953f;">Tap to Open ✨</span>
-                    </div>
-                    <div class="blessing-detail">
-                        May you achieve every single dream you wish for and always stay healthy, strong, and confident in everything you do! 🚀
-                    </div>
-                </div>
-
-                <div class="blessing-card" onclick="revealBlessing(this)">
-                    <div class="blessing-header">
-                        <span>🤍 Peace & Strength</span>
-                        <span style="color:#bf953f;">Tap to Open ✨</span>
-                    </div>
-                    <div class="blessing-detail">
-                        May peace always surround your heart. No matter how hard things get, may you always find the strength to shine bright! ✨
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-    </div>
-
-    <script>
-        const letterText = "Dear Alvira, \n\nHappy Friendship Day! ✨ On this special day, I wanted to remind you how much your friendship means to me. From the random chats to the meaningful support, you've made every moment better. Having you as my best friend is a privilege, and I'm so grateful for your presence in my life. Cheers to us and many more memories! 🥂💛";
-
-        function startSurprise() {
-            try {
-                document.getElementById('initial-view').style.display = 'none';
-                const surpriseArea = document.getElementById('surprise-area');
-                surpriseArea.style.display = 'block';
-                surpriseArea.style.opacity = '1';
-
-                startTypewriter();
-                startSlideshow();
-                startFloatingIcons();
-                startFireworks();
-
-                if (typeof confetti === 'function') {
-                    confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
-                }
-            } catch(e) {
-                console.log(e);
-            }
-        }
-
-        function revealBlessing(element) {
-            const detail = element.querySelector('.blessing-detail');
-            const status = element.querySelector('.blessing-header span:last-child');
-            
-            detail.style.display = 'block';
-            element.style.background = 'rgba(191, 149, 63, 0.3)';
-            status.innerText = 'Revealed ❤️';
-
-            if (typeof confetti === 'function') {
-                confetti({ particleCount: 40, spread: 50, origin: { y: 0.8 } });
-            }
-        }
-
-        function startTypewriter() {
-            let i = 0;
-            const container = document.getElementById('typewriter');
-            container.innerHTML = "";
-            function type() {
-                if (i < letterText.length) {
-                    if (letterText.charAt(i) === '\n') {
-                        container.innerHTML += '<br>';
-                    } else {
-                        container.innerHTML += letterText.charAt(i);
-                    }
-                    i++;
-                    setTimeout(type, 40);
-                }
-            }
-            type();
-        }
-
-        function startSlideshow() {
-            let slides = document.querySelectorAll('.slide');
-            let index = 0;
-            setInterval(() => {
-                slides[index].classList.remove('active');
-                index = (index + 1) % slides.length;
-                slides[index].classList.add('active');
-            }, 3000);
-        }
-
-        function startFloatingIcons() {
-            const icons = ['⭐', '✨', '💖', '❤️'];
-            setInterval(() => {
-                const icon = document.createElement('div');
-                icon.className = 'star';
-                icon.innerText = icons[Math.floor(Math.random() * icons.length)];
-                icon.style.left = Math.random() * 100 + 'vw';
-                icon.style.animationDuration = (Math.random() * 3 + 2) + 's';
-                document.body.appendChild(icon);
-                setTimeout(() => icon.remove(), 4000);
-            }, 500);
-        }
-
-        function startFireworks() {
-            const canvas = document.getElementById('fireworks-canvas');
-            const ctx = canvas.getContext('2d');
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-
-            let particles = [];
-            function createParticle() {
-                const x = Math.random() * canvas.width;
-                const y = Math.random() * (canvas.height / 2);
-                const color = `hsl(${Math.random() * 360}, 100%, 75%)`;
-                for (let i = 0; i < 20; i++) {
-                    particles.push({
-                        x: x, y: y,
-                        dx: (Math.random() - 0.5) * 6,
-                        dy: (Math.random() - 0.5) * 6,
-                        radius: Math.radius || Math.random() * 2.5,
-                        color: color,
-                        alpha: 1
-                    });
-                }
-            }
-
-            setInterval(createParticle, 700);
-
-            function animate()
+                    <div class="blessing-header"><span>🌸 Endless Happiness</span><span style="color:#bf953f;">Tap to Open ✨</span></div>
+                    <div class="blessing-detail">May your life always be filled with genuine laughter, beautiful moments, and pure joy. You deserve all the happiness

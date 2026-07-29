@@ -27,7 +27,7 @@
             width: 90%;
             max-width: 500px;
             padding: 20px;
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.88);
             backdrop-filter: blur(10px);
             border-radius: 20px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.1);
@@ -136,20 +136,36 @@
             margin: 20px 0;
         }
 
-        /* Music Controls */
-        .music-btn {
-            position: fixed;
-            top: 15px;
-            right: 15px;
-            background: #ffffff;
-            border: none;
-            border-radius: 50%;
-            width: 45px;
-            height: 45px;
-            font-size: 20px;
+        /* Extra Secret Gift Card */
+        .extra-gift-card {
+            background: linear-gradient(135deg, #ffe3e8, #fff0f3);
+            border: 2px dashed #ff416c;
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 25px;
             cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-            z-index: 100;
+            transition: all 0.3s ease;
+        }
+        .extra-gift-title {
+            font-weight: 600;
+            color: #d63384;
+            font-size: 1.1rem;
+        }
+        .extra-gift-content {
+            display: none;
+            margin-top: 15px;
+            font-size: 1rem;
+            color: #444;
+            animation: fadeIn 0.8s ease;
+        }
+        .reveal-badge {
+            display: inline-block;
+            background: #ff416c;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-top: 8px;
         }
 
         /* Canvas Overlay for Fireworks */
@@ -178,12 +194,7 @@
         }
     </style>
 </head>
-  <body>
-
-    <button class="music-btn" onclick="toggleMusic()" id="mBtn">🎵</button>
-    <audio id="bg-music" loop>
-        <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=sweet-love-111578.mp3" type="audio/mpeg">
-    </audio>
+<body>
 
     <canvas id="fireworks-canvas"></canvas>
 
@@ -215,35 +226,23 @@
                 "I am lucky to have you as my best friend!" 💖
             </div>
 
+            <div class="extra-gift-card" onclick="revealExtraGift()">
+                <div class="extra-gift-title">🎁 Extra Secret Gift for Alvira! 🎁</div>
+                <div class="reveal-badge" id="badge-text">Tap to Unbox ✨</div>
+                <div class="extra-gift-content" id="extra-content">
+                    <p>🎫 <strong>Friendship Pass Unlimited:</strong></p>
+                    <p style="margin-top: 5px; font-size: 0.9rem;">Valid forever for unlimited late-night chats, endless laughter, listening to your rants, and lifetime support! 🌟</p>
+                </div>
+            </div>
+
         </div>
     </div>
-        <script>
-        const letterText = "Dear Alvira, \n\nHappy Friendship Day! ✨ Thank you for always being there, making me laugh, and bringing so much positivity into my life. Having a friend like you is a blessing, and I truly cherish every moment and memory we share! 💖";
-        let musicPlaying = false;
 
-        function toggleMusic() {
-            const music = document.getElementById('bg-music');
-            const btn = document.getElementById('mBtn');
-            if (musicPlaying) {
-                music.pause();
-                btn.innerHTML = '🎵';
-                musicPlaying = false;
-            } else {
-                music.play();
-                btn.innerHTML = '🔊';
-                musicPlaying = true;
-            }
-        }
+    <script>
+        const letterText = "Dear Alvira, \n\nHappy Friendship Day! ✨ Thank you for always being there, making me laugh, and bringing so much positivity into my life. Having a friend like you is a blessing, and I truly cherish every moment and memory we share! 💖";
 
         function startSurprise() {
-            // 1. Play Music
-            const music = document.getElementById('bg-music');
-            music.play().then(() => {
-                musicPlaying = true;
-                document.getElementById('mBtn').innerHTML = '🔊';
-            }).catch(() => {});
-
-            // 2. Hide Initial view & Gift Animation
+            // Hide Initial view & Gift Animation
             document.getElementById('gBox').style.transform = 'scale(1.5) rotate(20deg)';
             
             setTimeout(() => {
@@ -259,6 +258,24 @@
                 startFloatingIcons();
                 startFireworks();
             }, 600);
+        }
+
+        // Extra Gift Reveal
+        function revealExtraGift() {
+            const content = document.getElementById('extra-content');
+            const badge = document.getElementById('badge-text');
+            if (content.style.display === 'block') return;
+
+            content.style.display = 'block';
+            badge.innerText = 'Unlocked! 🎉';
+            badge.style.background = '#28a745';
+            
+            // Confetti burst on unbox
+            confetti({
+                particleCount: 80,
+                spread: 60,
+                origin: { y: 0.8 }
+            });
         }
 
         // Confetti Burst

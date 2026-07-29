@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Friendship Day Alvira ✨</title>
+    <title>Special Surprise for Alvira ✨</title>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
     <style>
@@ -13,9 +13,10 @@
             box-sizing: border-box;
         }
         body {
-            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #feada6 100%);
+            /* Midnight Blue Gradient */
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
             font-family: 'Poppins', sans-serif;
-            color: #333;
+            color: #fff;
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -26,26 +27,33 @@
         .container {
             width: 90%;
             max-width: 500px;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.88);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            padding: 30px 20px;
+            /* Glassmorphism Effect */
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            box-shadow: 0 25px 45px rgba(0,0,0,0.3);
             position: relative;
             z-index: 10;
             margin: 20px auto;
         }
         h1 {
             font-family: 'Dancing Script', cursive;
-            font-size: 2.8rem;
-            color: #d63384;
+            font-size: 3rem;
+            /* Golden Text */
+            background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             margin-bottom: 10px;
+            text-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
         .subtitle {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #6c757d;
-            margin-bottom: 20px;
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: #e0e0e0;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
         }
         
         /* Gift Box CSS */
@@ -55,63 +63,69 @@
             display: inline-block;
         }
         .gift-box {
-            font-size: 80px;
-            animation: pulse 1.5s infinite;
-            transition: transform 0.5s ease;
+            font-size: 85px;
+            filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.5));
+            animation: pulse 1.8s infinite;
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         @keyframes pulse {
             0% { transform: scale(1); }
-            50% { transform: scale(1.1) rotate(5deg); }
+            50% { transform: scale(1.15) rotate(8deg); }
             100% { transform: scale(1); }
         }
 
         .btn-open {
-            background: linear-gradient(45deg, #ff416c, #ff4b2b);
-            color: white;
+            /* Gold Gradient Button */
+            background: linear-gradient(45deg, #bf953f, #aa771c);
+            color: #000;
             border: none;
-            padding: 12px 30px;
-            font-size: 1.1rem;
-            border-radius: 30px;
+            padding: 14px 40px;
+            font-size: 1.2rem;
+            border-radius: 40px;
             cursor: pointer;
-            box-shadow: 0 5px 15px rgba(255, 65, 108, 0.4);
+            box-shadow: 0 8px 20px rgba(170, 119, 28, 0.4);
             transition: 0.3s;
-            font-weight: 600;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         .btn-open:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(255, 65, 108, 0.6);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 25px rgba(170, 119, 28, 0.6);
+            background: linear-gradient(45deg, #fcf6ba, #bf953f);
         }
 
         /* Hidden Sequence Area */
         #surprise-area {
             display: none;
             opacity: 0;
-            transition: opacity 1s ease;
+            transition: opacity 1.2s ease;
         }
 
         /* Letter Box */
         .letter-box {
-            background: #fff;
-            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 25px;
             border-radius: 15px;
-            border-left: 5px solid #ff416c;
-            margin: 20px 0;
+            border-top: 3px solid #bf953f;
+            border-bottom: 3px solid #bf953f;
+            margin: 25px 0;
             text-align: left;
-            font-size: 0.95rem;
-            line-height: 1.6;
-            min-height: 120px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #f0f0f0;
+            box-shadow: inset 0 0 15px rgba(0,0,0,0.2);
         }
 
         /* Slideshow */
         .slideshow-container {
             width: 100%;
-            height: 250px;
-            border-radius: 15px;
+            height: 280px;
+            border-radius: 20px;
             overflow: hidden;
             position: relative;
-            margin: 20px 0;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            margin: 25px 0;
+            border: 2px solid rgba(191, 149, 63, 0.4);
         }
         .slide {
             width: 100%;
@@ -121,51 +135,60 @@
         }
         .slide.active {
             display: block;
-            animation: fadeIn 1s ease;
+            animation: zoomInFade 1.5s ease;
         }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        @keyframes zoomInFade {
+            from { opacity: 0; transform: scale(1.1); }
+            to { opacity: 1; transform: scale(1); }
         }
 
         /* Premium Highlight Text */
         .highlight-text {
             font-family: 'Dancing Script', cursive;
-            font-size: 1.8rem;
-            color: #d63384;
-            margin: 20px 0;
+            font-size: 2rem;
+            color: #fcf6ba;
+            margin: 25px 0;
+            text-shadow: 0 0 10px rgba(252, 246, 186, 0.3);
         }
 
-        /* Extra Secret Gift Card */
-        .extra-gift-card {
-            background: linear-gradient(135deg, #ffe3e8, #fff0f3);
-            border: 2px dashed #ff416c;
-            border-radius: 15px;
-            padding: 20px;
-            margin-top: 25px;
+        /* Blessings Section */
+        .blessings-section-title {
+            font-size: 1.2rem;
+            color: #fcf6ba;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        .blessings-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .blessing-card {
+            background: rgba(191, 149, 63, 0.12);
+            border: 1.5px solid rgba(191, 149, 63, 0.5);
+            border-radius: 12px;
+            padding: 15px;
             cursor: pointer;
             transition: all 0.3s ease;
+            text-align: left;
         }
-        .extra-gift-title {
+        .blessing-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             font-weight: 600;
-            color: #d63384;
-            font-size: 1.1rem;
+            color: #fcf6ba;
+            font-size: 0.95rem;
         }
-        .extra-gift-content {
+        .blessing-detail {
             display: none;
-            margin-top: 15px;
-            font-size: 1rem;
-            color: #444;
-            animation: fadeIn 0.8s ease;
-        }
-        .reveal-badge {
-            display: inline-block;
-            background: #ff416c;
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            margin-top: 8px;
+            margin-top: 10px;
+            font-size: 0.88rem;
+            color: #eee;
+            line-height: 1.6;
+            border-top: 1px rgba(255,255,255,0.1) solid;
+            padding-top: 8px;
         }
 
         /* Canvas Overlay for Fireworks */
@@ -180,7 +203,7 @@
         }
 
         /* Floating Animation Elements */
-        .heart, .rose {
+        .star {
             position: fixed;
             font-size: 20px;
             user-select: none;
@@ -189,7 +212,7 @@
             animation: floatUp 4s linear infinite;
         }
         @keyframes floatUp {
-            0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+            0% { transform: translateY(105vh) rotate(0deg); opacity: 1; }
             100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
         }
     </style>
@@ -199,15 +222,15 @@
     <canvas id="fireworks-canvas"></canvas>
 
     <div class="container">
-        <h1>Happy Friendship Day ❤️</h1>
-        <div class="subtitle">To my sweetest friend, Alvira ✨</div>
+        <h1>Happy Friendship Day ✨</h1>
+        <div class="subtitle">To my most precious friend, Alvira ❤️</div>
 
         <div id="initial-view">
             <div class="gift-container" onclick="startSurprise()">
                 <div class="gift-box" id="gBox">🎁</div>
             </div>
             <br>
-            <button class="btn-open" onclick="startSurprise()">Open Surprise 🎁</button>
+            <button class="btn-open" onclick="startSurprise()">Reveal Magic ✨</button>
         </div>
 
         <div id="surprise-area">
@@ -223,27 +246,52 @@
             </div>
 
             <div class="highlight-text">
-                "I am lucky to have you as my best friend!" 💖
+                "Forever & Always, My Best Friend" 💖
             </div>
 
-            <div class="extra-gift-card" onclick="revealExtraGift()">
-                <div class="extra-gift-title">🎁 Extra Secret Gift for Alvira! 🎁</div>
-                <div class="reveal-badge" id="badge-text">Tap to Unbox ✨</div>
-                <div class="extra-gift-content" id="extra-content">
-                    <p>🎫 <strong>Friendship Pass Unlimited:</strong></p>
-                    <p style="margin-top: 5px; font-size: 0.9rem;">Valid forever for unlimited late-night chats, endless laughter, listening to your rants, and lifetime support! 🌟</p>
+            <div class="blessings-section-title">✨ Special Blessings For You ✨</div>
+            <div class="blessings-grid">
+                
+                <div class="blessing-card" onclick="revealBlessing(this)">
+                    <div class="blessing-header">
+                        <span>🌸 Endless Happiness</span>
+                        <span style="color:#bf953f;">Tap to Open ✨</span>
+                    </div>
+                    <div class="blessing-detail">
+                        May your life always be filled with genuine laughter, beautiful moments, and pure joy. You deserve all the happiness in the world! 💖
+                    </div>
                 </div>
+
+                <div class="blessing-card" onclick="revealBlessing(this)">
+                    <div class="blessing-header">
+                        <span>🌟 Success & Good Health</span>
+                        <span style="color:#bf953f;">Tap to Open ✨</span>
+                    </div>
+                    <div class="blessing-detail">
+                        May you achieve every single dream you wish for and always stay healthy, strong, and confident in everything you do! 🚀
+                    </div>
+                </div>
+
+                <div class="blessing-card" onclick="revealBlessing(this)">
+                    <div class="blessing-header">
+                        <span>🤍 Peace & Strength</span>
+                        <span style="color:#bf953f;">Tap to Open ✨</span>
+                    </div>
+                    <div class="blessing-detail">
+                        May peace always surround your heart. No matter how hard things get, may you always find the strength to shine bright! ✨
+                    </div>
+                </div>
+
             </div>
 
         </div>
     </div>
 
     <script>
-        const letterText = "Dear Alvira, \n\nHappy Friendship Day! ✨ Thank you for always being there, making me laugh, and bringing so much positivity into my life. Having a friend like you is a blessing, and I truly cherish every moment and memory we share! 💖";
+        const letterText = "Dear Alvira, \n\nHappy Friendship Day! ✨ On this special day, I wanted to remind you how much your friendship means to me. From the random chats to the meaningful support, you've made every moment better. Having you as my best friend is a privilege, and I'm so grateful for your presence in my life. Cheers to us and many more memories! 🥂💛";
 
         function startSurprise() {
-            // Hide Initial view & Gift Animation
-            document.getElementById('gBox').style.transform = 'scale(1.5) rotate(20deg)';
+            document.getElementById('gBox').style.transform = 'scale(1.8) rotate(25deg)';
             
             setTimeout(() => {
                 document.getElementById('initial-view').style.display = 'none';
@@ -251,7 +299,6 @@
                 surpriseArea.style.display = 'block';
                 setTimeout(() => surpriseArea.style.opacity = '1', 50);
 
-                // Trigger Sequence
                 triggerConfetti();
                 startTypewriter();
                 startSlideshow();
@@ -260,34 +307,43 @@
             }, 600);
         }
 
-        // Extra Gift Reveal
-        function revealExtraGift() {
-            const content = document.getElementById('extra-content');
-            const badge = document.getElementById('badge-text');
-            if (content.style.display === 'block') return;
-
-            content.style.display = 'block';
-            badge.innerText = 'Unlocked! 🎉';
-            badge.style.background = '#28a745';
+        function revealBlessing(element) {
+            const detail = element.querySelector('.blessing-detail');
+            const status = element.querySelector('.blessing-header span:last-child');
             
-            // Confetti burst on unbox
+            if (detail.style.display === 'block') return;
+
+            detail.style.display = 'block';
+            element.style.background = 'rgba(191, 149, 63, 0.25)';
+            element.style.border = '1.5px solid #fcf6ba';
+            status.innerText = 'Revealed ❤️';
+            status.style.color = '#fcf6ba';
+
             confetti({
-                particleCount: 80,
-                spread: 60,
-                origin: { y: 0.8 }
+                particleCount: 50,
+                spread: 50,
+                origin: { y: 0.8 },
+                colors: ['#bf953f', '#fcf6ba', '#ffffff']
             });
         }
 
-        // Confetti Burst
         function triggerConfetti() {
-            confetti({
-                particleCount: 100,
-                spread: 70,
-                origin: { y: 0.6 }
-            });
+            var count = 200;
+            var defaults = { origin: { y: 0.7 } };
+
+            function fire(particleRatio, opts) {
+                confetti(Object.assign({}, defaults, opts, {
+                    particleCount: Math.floor(count * particleRatio)
+                }));
+            }
+
+            fire(0.25, { spread: 26, startVelocity: 55 });
+            fire(0.2, { spread: 60 });
+            fire(0.35, { spread: 100, decay: 0.91, scalar: 0.8 });
+            fire(0.1, { spread: 120, startVelocity: 25, decay: 0.92, scalar: 1.2 });
+            fire(0.1, { spread: 120, startVelocity: 45 });
         }
 
-        // Typewriter Effect
         function startTypewriter() {
             let i = 0;
             const speed = 50;
@@ -306,7 +362,6 @@
             type();
         }
 
-        // Photo Slideshow
         function startSlideshow() {
             let slides = document.querySelectorAll('.slide');
             let index = 0;
@@ -317,21 +372,20 @@
             }, 3000);
         }
 
-        // Floating Hearts & Roses
         function startFloatingIcons() {
-            const icons = ['❤️', '🌹', '💖', '✨'];
+            const icons = ['⭐', '✨', '💖', '🥂', '❤️'];
             setInterval(() => {
                 const icon = document.createElement('div');
-                icon.className = Math.random() > 0.5 ? 'heart' : 'rose';
+                icon.className = 'star';
                 icon.innerText = icons[Math.floor(Math.random() * icons.length)];
                 icon.style.left = Math.random() * 100 + 'vw';
+                icon.style.filter = 'drop-shadow(0 0 5px gold)';
                 icon.style.animationDuration = (Math.random() * 3 + 2) + 's';
                 document.body.appendChild(icon);
                 setTimeout(() => icon.remove(), 5000);
             }, 400);
         }
 
-        // Canvas Fireworks Animation
         function startFireworks() {
             const canvas = document.getElementById('fireworks-canvas');
             const ctx = canvas.getContext('2d');
@@ -342,20 +396,20 @@
             function createParticle() {
                 const x = Math.random() * canvas.width;
                 const y = Math.random() * (canvas.height / 2);
-                const color = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                const color = `hsl(${Math.random() * 360}, 100%, 75%)`;
                 for (let i = 0; i < 30; i++) {
                     particles.push({
                         x: x, y: y,
-                        dx: (Math.random() - 0.5) * 6,
-                        dy: (Math.random() - 0.5) * 6,
-                        radius: Math.random() * 3,
+                        dx: (Math.random() - 0.5) * 8,
+                        dy: (Math.random() - 0.5) * 8,
+                        radius: Math.random() * 2.5,
                         color: color,
                         alpha: 1
                     });
                 }
             }
 
-            setInterval(createParticle, 800);
+            setInterval(createParticle, 600);
 
             function animate() {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
